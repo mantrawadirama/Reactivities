@@ -1,7 +1,19 @@
-<h4>Entire application is developed using vscode</h4>
+<h2>Entire application is developed using vscode</h2>
+<h4>Technologies</h4>
+<ul>
+<li>.Net Core</li>
+<li>Clean architecture</li>
+<li>My Sql</li>
+<li>Thin API controller structure</li>
+<li>CQRS pattern</li>
+<li>MediatR pattern</li>
+</ul>
+### During Dev used Sqlite
+This project was bootstrapped with [Install Sqlite on Ubuntu](https://linuxhint.com/install_sqlite_browser_ubuntu_1804/).
+
 <table>
 <tr>
-<th>commands used
+<th colspan="2">commands used
 </th>
 </tr>
 <tr>
