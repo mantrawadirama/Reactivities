@@ -9,7 +9,7 @@
 <li>MediatR pattern</li>
 </ul>
 ### During Dev used Sqlite
-This project was bootstrapped with [Install Sqlite on Ubuntu](https://linuxhint.com/install_sqlite_browser_ubuntu_1804/).
+[Install Sqlite on Ubuntu](https://linuxhint.com/install_sqlite_browser_ubuntu_1804/).
 
 <table>
 <tr>
