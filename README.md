@@ -5,8 +5,8 @@
 <li>Clean architecture</li>
 <li>My Sql</li>
 <li>Thin API controller structure</li>
-<li>CQRS pattern</li>
-<li>MediatR pattern</li>
+<li>CQRS, MediatR pattern</li>
+<li>Fluent validation using Data Annotations</li>
 </ul>
 ### During Dev used Sqlite
 [Install Sqlite on Ubuntu](https://linuxhint.com/install_sqlite_browser_ubuntu_1804/).
