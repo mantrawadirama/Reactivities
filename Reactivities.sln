@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reactivities.Persistence", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reactivities.API", "Reactivities.API\Reactivities.API.csproj", "{8BD34A32-F4B5-4E50-829F-E0BB822DCAB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reactivities.Infrastructure", "Reactivities.Infrastructure\Reactivities.Infrastructure.csproj", "{BFBAF2B6-DDAD-47E2-B4CF-43CD19904D06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,17 @@ Global
 		{8BD34A32-F4B5-4E50-829F-E0BB822DCAB2}.Release|x64.Build.0 = Release|Any CPU
 		{8BD34A32-F4B5-4E50-829F-E0BB822DCAB2}.Release|x86.ActiveCfg = Release|Any CPU
 		{8BD34A32-F4B5-4E50-829F-E0BB822DCAB2}.Release|x86.Build.0 = Release|Any CPU
+		{BFBAF2B6-DDAD-47E2-B4CF-43CD19904D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFBAF2B6-DDAD-47E2-B4CF-43CD19904D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFBAF2B6-DDAD-47E2-B4CF-43CD19904D06}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BFBAF2B6-DDAD-47E2-B4CF-43CD19904D06}.Debug|x64.Build.0 = Debug|Any CPU
+		{BFBAF2B6-DDAD-47E2-B4CF-43CD19904D06}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BFBAF2B6-DDAD-47E2-B4CF-43CD19904D06}.Debug|x86.Build.0 = Debug|Any CPU
+		{BFBAF2B6-DDAD-47E2-B4CF-43CD19904D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFBAF2B6-DDAD-47E2-B4CF-43CD19904D06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFBAF2B6-DDAD-47E2-B4CF-43CD19904D06}.Release|x64.ActiveCfg = Release|Any CPU
+		{BFBAF2B6-DDAD-47E2-B4CF-43CD19904D06}.Release|x64.Build.0 = Release|Any CPU
+		{BFBAF2B6-DDAD-47E2-B4CF-43CD19904D06}.Release|x86.ActiveCfg = Release|Any CPU
+		{BFBAF2B6-DDAD-47E2-B4CF-43CD19904D06}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

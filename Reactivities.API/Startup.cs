@@ -1,10 +1,8 @@
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Reactivities.Application.Activities;
 using Reactivities.API.Extensions;
 using Reactivities.API.Middleware;
 
@@ -23,12 +21,13 @@ namespace Reactivities.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureSqliteDbContext(Configuration);
-            services.AddControllers().AddFluentValidation(cfg =>
-            {
-                cfg.RegisterValidatorsFromAssemblyContaining<Create>();
-            });
+            services.ConfigureFluentValidation();
             services.ConfigureCors();
             services.ConfigureMediator();
+            services.ConfigureSignInService();
+            services.ConfigureAuthentication(Configuration);
+            services.ConfigureJwtGenerator();
+            services.ConfigureUserAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,13 +37,14 @@ namespace Reactivities.API
             if (env.IsDevelopment())
             {
                 //  app.UseDeveloperExceptionPage();
-
             }
 
             //app.UseHttpsRedirection();
-            app.UseCors("CorsPolicy");
-            app.UseRouting();
 
+            app.UseRouting();
+            app.UseCors("CorsPolicy");
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

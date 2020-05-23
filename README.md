@@ -7,6 +7,7 @@
 <li>Thin API controller structure</li>
 <li>CQRS, MediatR pattern</li>
 <li>Fluent validation using Data Annotations</li>
+<li> Asp.Net core Identity with JWT</li>
 </ul>
 ### During Dev used Sqlite
 [Install Sqlite on Ubuntu](https://linuxhint.com/install_sqlite_browser_ubuntu_1804/).
@@ -53,5 +54,11 @@ dotnet sln add Reactivities.Persistence/</td>
 <tr>
 <td>To check for changes and run API </td>
 <td>dotnet watch run</td>
+</tr>
+<tr>
+<td>.Net core 3.0 - option for setting secret key on dev machine
+</td>
+<td>dotnet user-secrets init -p Reactivities.API</br>
+dotnet user-secrets set "{your key name}" "{your key}" -p Reactivities.API</td>
 </tr>
 </table>
