@@ -1,4 +1,5 @@
 using System.Text;
+using AutoMapper;
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -34,6 +35,7 @@ namespace Reactivities.API.Extensions
         {
             services.AddDbContext<DataContext>(opt =>
             {
+                opt.UseLazyLoadingProxies();
                 opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
             });
         }
@@ -66,6 +68,18 @@ namespace Reactivities.API.Extensions
             identityBuilder.AddSignInManager<SignInManager<AppUser>>();
         }
 
+        public static void ConfigureAuthorizationPolicy(this IServiceCollection services)
+        {
+            services.AddAuthorization(opt =>
+            {
+                opt.AddPolicy("IsActivityHost", policy =>
+                {
+                    policy.Requirements.Add(new IsHostRequirement());
+                });
+            });
+            services.AddTransient<IAuthorizationHandler, IsHostRequirementHandler>();
+        }
+
         public static void ConfigureAuthentication(this IServiceCollection services, IConfiguration config)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
@@ -89,6 +103,11 @@ namespace Reactivities.API.Extensions
         public static void ConfigureUserAccessor(this IServiceCollection services)
         {
             services.AddScoped<IUserAccessor, UserAccessor>();
+        }
+
+        public static void ConfigureAutoMapper(this IServiceCollection services)
+        {
+            services.AddAutoMapper(typeof(List.Handler));
         }
     }
 
