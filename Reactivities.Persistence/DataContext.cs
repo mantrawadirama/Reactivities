@@ -12,6 +12,7 @@ namespace Reactivities.Persistence
 
         public DbSet<Value> Values { get; set; }
         public DbSet<Activity> Activities { get; set; }
+        public DbSet<UserActivity> UserActivities { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -22,6 +23,21 @@ namespace Reactivities.Persistence
                 new Value { Id = 3, Name = "value 103" },
                 new Value { Id = 4, Name = "value 104" }
             );
+            //defining primary key
+            builder.Entity<UserActivity>(x => x.HasKey(ua => new { ua.AppUserId, ua.ActivityId }));
+
+            // define relation between user and activity
+            builder.Entity<UserActivity>()
+                .HasOne(u => u.AppUser)
+                .WithMany(a => a.UserActivities)
+                .HasForeignKey(u => u.AppUserId);
+
+            //1 activity can have many appusers
+            // 1 app user can have many activities
+            builder.Entity<UserActivity>()
+                .HasOne(u => u.Activity)
+                .WithMany(a => a.UserActivities)
+                .HasForeignKey(u => u.ActivityId);
         }
     }
 }

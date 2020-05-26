@@ -7,6 +7,7 @@
 <li>Thin API controller structure</li>
 <li>CQRS, MediatR pattern</li>
 <li>Fluent validation using Data Annotations</li>
+<li>AutoMapper</li>
 <li> Asp.Net core Identity with JWT</li>
 </ul>
 ### During Dev used Sqlite

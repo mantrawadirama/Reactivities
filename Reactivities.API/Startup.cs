@@ -24,7 +24,9 @@ namespace Reactivities.API
             services.ConfigureFluentValidation();
             services.ConfigureCors();
             services.ConfigureMediator();
+            services.ConfigureAutoMapper();
             services.ConfigureSignInService();
+            services.ConfigureAuthorizationPolicy();
             services.ConfigureAuthentication(Configuration);
             services.ConfigureJwtGenerator();
             services.ConfigureUserAccessor();
