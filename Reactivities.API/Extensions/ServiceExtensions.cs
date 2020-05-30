@@ -14,6 +14,7 @@ using Reactivities.Application.Activities;
 using Reactivities.Application.Interfaces;
 using Reactivities.Domain;
 using Reactivities.Infrastructure;
+using Reactivities.Infrastructure.Photos;
 using Reactivities.Infrastructure.Security;
 using Reactivities.Persistence;
 
@@ -108,6 +109,15 @@ namespace Reactivities.API.Extensions
         public static void ConfigureAutoMapper(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(List.Handler));
+        }
+        public static void ConfigureCloudinary(this IServiceCollection services, IConfiguration config)
+        {
+            services.Configure<CloudinarySettings>(config.GetSection("Cloudinary"));
+        }
+
+        public static void ConfigurePhotoAccessor(this IServiceCollection services)
+        {
+            services.AddScoped<IPhotoAccessor, PhotoAccessor>();
         }
     }
 
