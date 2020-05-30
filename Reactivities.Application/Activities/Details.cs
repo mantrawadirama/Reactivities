@@ -1,11 +1,9 @@
 using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Reactivities.Application.Errors;
 using Reactivities.Domain;
 using Reactivities.Persistence;

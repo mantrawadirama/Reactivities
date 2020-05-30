@@ -30,6 +30,8 @@ namespace Reactivities.API
             services.ConfigureAuthentication(Configuration);
             services.ConfigureJwtGenerator();
             services.ConfigureUserAccessor();
+            services.ConfigurePhotoAccessor();
+            services.ConfigureCloudinary(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

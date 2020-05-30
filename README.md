@@ -9,10 +9,12 @@
 <li>Fluent validation using Data Annotations</li>
 <li>AutoMapper</li>
 <li> Asp.Net core Identity with JWT</li>
+<li>Cloudinary to store user images</li>
 </ul>
 ### During Dev used Sqlite
 [Install Sqlite on Ubuntu](https://linuxhint.com/install_sqlite_browser_ubuntu_1804/).
-
+<br/>
+[Create account at Cloudinary](https://cloudinary.com/).
 <table>
 <tr>
 <th colspan="2">commands used
