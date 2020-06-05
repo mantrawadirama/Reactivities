@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Reactivities.API.Extensions;
 using Reactivities.API.Middleware;
+using Reactivities.API.SignalR;
 
 namespace Reactivities.API
 {
@@ -25,6 +26,7 @@ namespace Reactivities.API
             services.ConfigureCors();
             services.ConfigureMediator();
             services.ConfigureAutoMapper();
+            services.AddSignalR();
             services.ConfigureSignInService();
             services.ConfigureAuthorizationPolicy();
             services.ConfigureAuthentication(Configuration);
@@ -54,6 +56,7 @@ namespace Reactivities.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<ChatHub>("/chat");
             });
         }
     }
