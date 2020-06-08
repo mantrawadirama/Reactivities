@@ -33,6 +33,7 @@ namespace Reactivities.API
             services.ConfigureJwtGenerator();
             services.ConfigureUserAccessor();
             services.ConfigurePhotoAccessor();
+            services.ConfigureProfileReader();
             services.ConfigureCloudinary(Configuration);
         }
 
