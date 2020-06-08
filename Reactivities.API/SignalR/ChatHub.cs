@@ -30,20 +30,20 @@ namespace Reactivities.API.SignalR
             return Context.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
         }
 
-        // public async Task AddToGroup(string groupName)
-        // {
-        //     var username = GetUsername();
-        //     await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
+        public async Task AddToGroup(string groupName)
+        {
+            var username = GetUsername();
+            await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
 
-        //     await Clients.Group(groupName).SendAsync("Send", $"{username} has joined the group");
-        // }
+            await Clients.Group(groupName).SendAsync("Send", $"{username} has joined the group");
+        }
 
-        // public async Task RemoveFromGroup(string groupName)
-        // {
-        //     var username = GetUsername();
-        //     await Groups.RemoveFromGroupAsync(Context.ConnectionId, groupName);
+        public async Task RemoveFromGroup(string groupName)
+        {
+            var username = GetUsername();
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, groupName);
 
-        //     await Clients.Group(groupName).SendAsync("Send", $"{username} has left the group");
-        // }
+            await Clients.Group(groupName).SendAsync("Send", $"{username} has left the group");
+        }
     }
 }

@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Reactivities.Application.Activities;
 using Reactivities.Application.Interfaces;
+using Reactivities.Application.Profiles;
 using Reactivities.Domain;
 using Reactivities.Infrastructure;
 using Reactivities.Infrastructure.Photos;
@@ -119,7 +120,10 @@ namespace Reactivities.API.Extensions
         {
             services.AddScoped<IUserAccessor, UserAccessor>();
         }
-
+        public static void ConfigureProfileReader(this IServiceCollection services)
+        {
+            services.AddScoped<IProfileReader, ProfileReader>();
+        }
         public static void ConfigureAutoMapper(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(List.Handler));
