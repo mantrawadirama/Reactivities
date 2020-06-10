@@ -12,14 +12,16 @@ namespace Reactivities.API.Controllers
     {
 
         [HttpGet]
-        public async Task<ActionResult<List<ActivityDto>>> GetAllActivities()
+        public async Task<ActionResult<List.ActivitiesEnvelope>> List(int? limit,
+            int? offset, bool isGoing, bool isHost, DateTime? startDate)
         {
-            return await Mediator.Send(new List.Query());
+            return await Mediator.Send(new List.Query(limit,
+                offset, isGoing, isHost, startDate));
         }
 
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<ActivityDto>> GetActivity(Guid id)
+        public async Task<ActionResult<ActivityDto>> Details(Guid id)
         {
             return await Mediator.Send(new Details.Query { Id = id });
         }
