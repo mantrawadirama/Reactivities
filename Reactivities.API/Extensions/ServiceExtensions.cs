@@ -1,3 +1,4 @@
+using System;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -30,16 +31,29 @@ namespace Reactivities.API.Extensions
             {
                 opt.AddPolicy("CorsPolicy", policy =>
                 {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000").AllowCredentials();
+                    policy.AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .WithExposedHeaders("WWW-Authenticate")
+                        .WithOrigins("http://localhost:3000")
+                        .AllowCredentials();
                 });
             });
         }
-        public static void ConfigureSqliteDbContext(this IServiceCollection services, IConfiguration config)
+
+        public static void ConfigureDevelopmentServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddDbContext<DataContext>(opt =>
             {
                 opt.UseLazyLoadingProxies();
                 opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
+            });
+        }
+        public static void ConfigureProductionServices(this IServiceCollection services, IConfiguration config)
+        {
+            services.AddDbContext<DataContext>(opt =>
+            {
+                opt.UseLazyLoadingProxies();
+                opt.UseMySql(config.GetConnectionString("DefaultConnection"));
             });
         }
 
@@ -94,7 +108,9 @@ namespace Reactivities.API.Extensions
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = key,
                 ValidateAudience = false,
-                ValidateIssuer = false
+                ValidateIssuer = false,
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero
                 };
                 opt.Events = new JwtBearerEvents
                 {
