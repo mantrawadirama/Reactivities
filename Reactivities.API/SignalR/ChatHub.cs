@@ -2,11 +2,13 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using Reactivities.Application.Comments;
 
 namespace Reactivities.API.SignalR
 {
+    [Authorize]
     public class ChatHub : Hub
     {
         private readonly IMediator _mediator;
